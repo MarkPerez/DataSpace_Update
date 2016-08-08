@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DataSpace</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    @if (ViewBag.Title != "Introduction")
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">                    
+                    @Html.ActionLink("DataSpace", "Index", "Planets", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                </div>
+            </div>
+        </div>
+    }    
+
+    <div class="container body-content">
+        @RenderBody()
+        @if (ViewBag.Title != "SolarSystem" && ViewBag.Title != "Introduction")
+        {
+            <hr />
+        }
+        @if (ViewBag.Title != "Introduction")
+        {
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mark Perez - Disclaimer: This is a non-commercial demonstration site. The name 'DataSpace'
+                bears no relation and has no connection whatsoever to any existing entities with or using the name 'DataSpace' or any
+                other name that resembles the name 'DataSpace'.</p>
+            </footer>
+        }
+        @if (ViewBag.Title == "SolarSystem")
+        {
+            <style>
+                footer {
+                    position: fixed;
+                    bottom: 0;
+                }
+            </style>
+        }        
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script>
+        window.onload = function ()
+        {
+            $("#intro").fadeIn(3000).delay(500).fadeOut(3000);            
+            $("#nameFade").fadeIn("slow");
+            $("#dropDown").delay(1000).slideDown("slow");
+            $("#sun").delay(500).fadeIn(2000);
+            $("#mercury").delay(1000).fadeIn(2000);
+            $("#venus").delay(1000).fadeIn(2000);
+            $("#earth").delay(1000).fadeIn(2000);
+            $("#mars").delay(1000).fadeIn(2000);
+            $("#jupiter").delay(1000).fadeIn(2000);
+            $("#saturn").delay(1000).fadeIn(2000);            
+            $("#uranus").delay(1000).fadeIn(2000);
+            $("#neptune").delay(1000).fadeIn(2000);
+        }
+    </script>
+
+</body>
+</html>

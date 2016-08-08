@@ -1,0 +1,175 @@
+﻿@model DataSpace.Models.Planet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@if (Model.Picture != null)
+{
+    if (Model.Name == "Mercury")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/images/mercury-153570_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Venus")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/venus-26620_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Earth")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/world-1348808_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Mars")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/mars-153566_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Jupiter")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/jupiter-153563_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Saturn")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/saturn-153576_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 1600px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Uranus")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/uranus-153572_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Neptune")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/neptune-153571_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+}
+
+<h2 id="header">Delete</h2>
+
+<h3 id="header">Are you sure you want to delete this?</h3>
+<div>
+    <h4 id="nameFade">@Model.Name</h4>
+    <hr />
+    <div class="viewSections" id="dropDown">
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PlanetType):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PlanetType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DistanceFromSun):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DistanceFromSun)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Diameter):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Diameter)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DayLength):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DayLength)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YearLength):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YearLength)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to DataSpace", "Index")
+            </div>
+        }
+    </div>
+</div>

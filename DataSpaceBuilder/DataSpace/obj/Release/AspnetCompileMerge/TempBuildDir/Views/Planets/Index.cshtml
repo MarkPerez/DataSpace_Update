@@ -1,0 +1,119 @@
+﻿@model IEnumerable<DataSpace.Models.Planet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 id="header">Planets of the Solar System</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create") 
+    <span class="pull-right">@Html.ActionLink("Our Solar System", "SolarSystem")</span>
+
+    @using (Html.BeginForm("Index", "Planets", FormMethod.Get))
+    {
+        @:Planet Type: @Html.DropDownList("searchType", "All")
+        @:Name: @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" />    
+    }    
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanetType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistanceFromSun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diameter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DayLength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearLength)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.Picture != null)
+            {
+                if (item.Name == "Mercury")
+                {
+                    <img src='../../Content/images/mercury-153570_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Venus")
+                {
+                    <img src='../../Content/images/venus-26620_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Earth")
+                {
+                    <img src='../../Content/images/world-1348808_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Mars")
+                {
+                    <img src='../../Content/images/mars-153566_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Jupiter")
+                {
+                    <img src='../../Content/images/jupiter-153563_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Saturn")
+                {
+                    <img src='../../Content/images/saturn-153576_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Uranus")
+                {
+                    <img src='../../Content/images/uranus-153572_1280.png' height="100" width="100" />
+                }
+
+                else if (item.Name == "Neptune")
+                {
+                    <img src='../../Content/images/neptune-153571_1280.png' height="100" width="100" />
+                }
+            }            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanetType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistanceFromSun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diameter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DayLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearLength)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

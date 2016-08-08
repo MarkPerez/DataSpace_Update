@@ -1,0 +1,190 @@
+﻿@model DataSpace.Models.Planet
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@if (Model.Picture != null)
+{
+    if (Model.Name == "Mercury")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/images/mercury-153570_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Venus")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/venus-26620_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Earth")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/world-1348808_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Mars")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/mars-153566_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Jupiter")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/jupiter-153563_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Saturn")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/saturn-153576_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 1600px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Uranus")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/uranus-153572_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+
+    else if (Model.Name == "Neptune")
+    {
+        <style>
+            body {
+                background-image: url('../../Content/Images/neptune-153571_1280.png'), url('../../Content/Images/milky-way-1016309_1920.jpg');
+                background-size: 900px 900px, cover;
+                background-repeat: no-repeat, no-repeat;
+                color: white;
+            }
+        </style>
+    }
+}
+
+<h2 id="header">Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 id="nameFade">@Model.Name</h4>
+        <hr />
+        <div class="viewSections" id="dropDown">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PlanetType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PlanetType, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PlanetType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DistanceFromSun, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DistanceFromSun, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DistanceFromSun, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Diameter, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Diameter, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DayLength, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DayLength, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DayLength, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YearLength, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.YearLength, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.YearLength, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+            <div>
+                @Html.ActionLink("Back to DataSpace", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

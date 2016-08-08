@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DataSpace.Models.Planet>
+
+@{
+    ViewBag.Title = "SolarSystem";
+}
+
+<h2 id="nameFade">Our Solar System</h2>
+
+<div id="sun">    
+    <img src="~/Content/Images/isolated-1497205_1920.png") width="425" />    
+
+    @foreach (var item in Model)
+    {
+        if (item.Name == "Mercury")
+        {
+            <div id="mercury">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/mercury-153570_1280.png" height="15" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Venus")
+        {
+            <div id="venus">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/venus-26620_1280.png" height="35" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Earth")
+        {
+            <div id="earth">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/world-1348808_1280.png" height="40" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Mars")
+        {
+            <div id="mars">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/mars-153566_1280.png" height="25" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Jupiter")
+        {
+            <div id="jupiter">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/jupiter-153563_1280.png" height="115" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Saturn")
+        {
+            <div id="saturn">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/saturn-153576_1280.png" height="100" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Uranus")
+        {
+            <div id="uranus">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/uranus-153572_1280.png" height="80" />
+                </a>
+            </div>
+        }
+
+        else if (item.Name == "Neptune")
+        {
+            <div id="neptune">
+                <a href="@Url.Action("Details", "Planets", new { id=item.ID })">
+                    <img src="~/Content/images/neptune-153571_1280.png" height="75" />
+                </a>
+            </div>
+        }
+    }
+
+</div>
